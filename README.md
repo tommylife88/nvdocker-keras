@@ -6,12 +6,46 @@
 * [nvidia-docker](https://github.com/NVIDIA/nvidia-docker/wiki/Installation-(version-2.0)#prerequisites)
 * [CUDA](https://github.com/NVIDIA/nvidia-docker/wiki/CUDA#requirements)
 
-## Usage
+## Running the container
+
+Using Makefile to simplify docker commands within make commands.
+
+### build image
 
 ```bash
-$ docker build -t test/nvdocker-tf:1 .
-$ docker run --runtime=nvidia -d -it --name "test" -v /etc/localtime:/etc/localtime:ro --restart=always "test/nvdocker-tf:1"
-$ docker exec -it test bash
+$ make build
+```
+
+### start container
+
+```bash
+$ make start
+```
+
+### attach container
+
+```bash
+$ make attach
+```
+
+### stop container
+
+```bash
+$ make stop
+```
+
+### clean container and images
+
+```bash
+$ make clean
+```
+
+## Keras example
+
+```bash
+$ make build
+$ make start
+$ make attach
 $ git clone https://github.com/fchollet/keras.git
 $ cd keras/examples
 $ python mnist_cnn.py
