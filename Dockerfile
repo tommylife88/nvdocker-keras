@@ -49,16 +49,20 @@ RUN pip install --upgrade pip
 # Install python library.
 RUN pip install --ignore-installed \
     keras==2.2.4 \
-    h5py==2.9.0 \
-    jupyter==1.0.0 \
-    matplotlib==3.0.2 \
-    notebook==5.7.4 \
-    NumPy==1.15.4 \
-    pandas==0.23.4 \
-    pydot==1.4.1 \
-    scikit-learn==0.20.2 \
-    SciPy==1.2.0 \
-    tensorflow_gpu==1.12.0
+    h5py \
+    jupyter \
+    matplotlib \
+    notebook \
+    NumPy \
+    pandas \
+    pydot \
+    scikit-learn \
+    SciPy \
+    tensorflow_gpu==1.12.0 \
+    jupyter_contrib_nbextensions
+
+# Enable nbextension. 
+RUN jupyter contrib nbextension install --user
 
 # Downgrade cuDNN library.
 # TensorFlows issue: https://github.com/tensorflow/tensorflow/issues/17566#issuecomment-372490062
